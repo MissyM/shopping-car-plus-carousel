@@ -1,0 +1,20 @@
+@font-face{
+  font-family:Silka-Bold;
+  src:url(./assets/fonts/Silka-Bold.otf)
+}
+@font-face{
+  font-family:Silka-Medium;
+  src:url(./assets/fonts/Silka-Medium.otf)
+}
+@font-face{
+  font-family:Silka-Regular;
+  src:url(./assets/fonts/Silka-Regular.otf)
+}
+@font-face{
+  font-family:Silka-SemiBold;
+  src:url(./assets/fonts/Silka-SemiBold.otf)
+}
+
+.App {
+  font-family: 'Silka-Medium','Silka-Bold','Silka-Regular','Silka-SemiBold' sans-serif;
+}
