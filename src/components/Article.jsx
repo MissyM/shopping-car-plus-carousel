@@ -8,7 +8,13 @@ const Article = ({
   priceReal,
   unitsSf,
   sellos,
+  onAddToCart,
 }) => {
+  //const [showModal, setShowModal] = useState(false)
+
+  // const openModal =() => {
+  //   setShowModal(prev => !prev)
+  // }
   return (
     <div className="article">
       <div className="article__photo">
@@ -33,7 +39,9 @@ const Article = ({
         </div>
       </div>
 
-      <button className="article__add-article">Agregar al carrito</button>
+      <button className="article__add-article" onClick={onAddToCart}>
+        Agregar al carrito
+      </button>
     </div>
   )
 }

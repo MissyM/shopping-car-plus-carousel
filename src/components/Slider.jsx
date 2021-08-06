@@ -1,4 +1,4 @@
-import Carousel from 'react-multi-carousel'
+import Carousel from 'react-multi-carousel' //External library
 import 'react-multi-carousel/lib/styles.css'
 import styles from './slider.module.scss'
 

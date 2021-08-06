@@ -1,3 +1,7 @@
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { actions as shoppingCartActions } from '../features/shoppingCart/slice'
+
 import './header.scss'
 import superfuds from '../assets/images/superfuds.png'
 import shoppingcar from '../assets/images/shopping-car.png'
@@ -6,6 +10,12 @@ import man from '../assets/images/man.png'
 import loupe from '../assets/images/loupe.png'
 
 const Header = () => {
+  const dispatch = useDispatch()
+
+  const numItems = useSelector(
+    (state) => Object.keys(state.shoppingCart.articles).length
+  )
+
   return (
     <div className="header">
       <div className="header__logo">
@@ -16,7 +26,14 @@ const Header = () => {
         <img className="search-icon" src={loupe} alt="Search" />
       </div>
       <div className="header__shopping-car">
-        <img src={shoppingcar} alt="Shopping Car" />
+        <img
+          src={shoppingcar}
+          alt="Shopping Car"
+          onClick={() => {
+            dispatch(shoppingCartActions.open())
+          }}
+        />
+        <span>{numItems}</span>
       </div>
       <div className="header__user">
         <div className="header__user--left">
