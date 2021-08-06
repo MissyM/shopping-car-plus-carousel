@@ -5,6 +5,13 @@
  flex-direction: column;
  border-radius: 5px;
  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; 
+ position: relative;
+
+ &:hover {
+  .article__add-article {
+   display: flex;
+  }
+ }
 }
 .article__photo {
  border-bottom: 1px solid rgb(237, 237, 237);
@@ -17,20 +24,18 @@
  height: 120px;
 
 }
-.article__icons {
+.article__sellos {
  display: flex;
  flex-direction: column;
  position: absolute;
  right:10px;
  top: 10px
 }
-.article__icons img{
+.article__sellos img{
  padding-bottom: 3px;
  width: 20px;
  height: 20px;
- 
 }
-
 .artcle__info {
  display: flex;
  flex-direction: column;
@@ -42,10 +47,14 @@
  padding-top: 10px;
 }
 .artcle__info__supplier__brand {
+ width: 80px;
  color:#25c16a;
  font-size: 12px;
  font-weight: bold;
  padding-left: 10px;
+ white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
 }
 .artcle__info__supplier__weight {
  height: 15px;
@@ -95,15 +104,17 @@
  padding-left: 5px;
 }
 .article__add-article {
+ cursor: pointer;
+ display: none;
  height: 30px;
+ width: 100%;
  background-color: #25c16a;
  font-size: 12px;
  font-weight: bold;
- display: flex;
  align-items: center;
  justify-content:center;
  color: #ffffff;
  border: none;
- position: relative;
- bottom: -21px;
+ position: absolute;
+ bottom: -30px;
 }
