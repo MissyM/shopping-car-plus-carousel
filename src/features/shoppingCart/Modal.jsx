@@ -3,6 +3,7 @@ import { Dialog, DialogOverlay, DialogContent } from '@reach/dialog'
 import '@reach/dialog/styles.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { actions as shoppingCartActions } from './slice'
+import './modal.scss'
 
 const Modal = () => {
   const dispatch = useDispatch()
@@ -15,33 +16,33 @@ const Modal = () => {
     Object.values(state.shoppingCart.articles)
   )
 
-  const open = () => {
-    dispatch(shoppingCartActions.open())
-  }
   const close = () => {
     dispatch(shoppingCartActions.close())
   }
 
   return (
     <Dialog isOpen={isOpen} onDismiss={close}>
-      <button className="close-button" onClick={close}>
-        <span aria-hidden>×</span>
-      </button>
+      <div className="modal__close-button">
+        <button id="modal__close-button" onClick={close}>
+          &#60;
+        </button>
+        <label for="modal__close-button">Volver a la tienda</label>
+      </div>
       <h1>Carrito de compras</h1>
-      <div>
+      <div className="modal__num-items">
         <span>{numItems}</span>
         items
       </div>
-      <div clasName="articles">
-        <div clasName="articles__header">
-          <div>Item</div>
-          <div>Cantidad</div>
-          <div>Precio</div>
-        </div>
+      <div className="articles">
+        <div>Item</div>
+        <div className="articles--center">Cantidad</div>
+        <div className="articles--center">Precio</div>
+        {/* Remove space */}
+        <div></div>
         {articles.map(({ data, amount, price }) => (
-          <div clasName="articles__item">
+          <React.Fragment key={data.id}>
             <div className="articles__item__data">{data.title}</div>
-            <div className="articles__item__amount">
+            <div className="articles__item__amount articles--center">
               <button
                 disabled={amount === 1}
                 onClick={() => {
@@ -59,15 +60,18 @@ const Modal = () => {
                 +
               </button>
             </div>
-            <div className="articles__item__price">{price}</div>
+            <div className="articles__item__price articles--center">
+              {price}
+            </div>
             <button
+              className="articles__item__remove"
               onClick={() => {
                 dispatch(shoppingCartActions.remove({ article: data }))
               }}
             >
               remove
             </button>
-          </div>
+          </React.Fragment>
         ))}
       </div>
     </Dialog>

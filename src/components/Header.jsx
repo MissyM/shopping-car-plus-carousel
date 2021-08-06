@@ -25,15 +25,17 @@ const Header = () => {
         <input placeholder="Busca marcas y productos..." type="text" />
         <img className="search-icon" src={loupe} alt="Search" />
       </div>
-      <div className="header__shopping-car">
-        <img
-          src={shoppingcar}
-          alt="Shopping Car"
-          onClick={() => {
-            dispatch(shoppingCartActions.open())
-          }}
-        />
-        <span>{numItems}</span>
+      <div className="header__shopping-cart">
+        <div className="header__shopping-cart__image">
+          <img
+            src={shoppingcar}
+            alt="Shopping Car"
+            onClick={() => {
+              dispatch(shoppingCartActions.open())
+            }}
+          />
+          <span>{numItems}</span>
+        </div>
       </div>
       <div className="header__user">
         <div className="header__user--left">

@@ -1,0 +1,38 @@
+.modal__close-button {
+ display: flex;
+ align-items: center;
+ font-size: 14px;
+ color:#787878;
+ cursor: pointer;
+ outline: none;
+}
+.modal__close-button button {
+ color: #25c16a;
+ border: none;
+ background: none;
+ font-weight: bold;
+ font-size: 18px;
+}
+.modal__num-items {
+ display:flex;
+ justify-content: flex-end;
+ font-weight: bold;
+ font-size: 14px;
+
+ span {
+  color:#25c16a;
+  margin-right: 5px;
+
+ }
+}
+
+.articles {
+ display: grid;
+ grid-template-columns: 4fr 2fr 2fr 1fr;
+ grid-gap: 5px;
+
+ .articles--center {
+  display: flex;
+  justify-content: center;
+ }
+}
